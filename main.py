@@ -15,6 +15,10 @@ ENTRY = (
 
 
 def main() -> None:
+    # Kit gate: entry line must be 1-140 characters.
+    assert 1 <= len(ENTRY) <= 140, (
+        f"entry line is {len(ENTRY)} characters, must be 1-140"
+    )
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(ENTRY + "\n")
